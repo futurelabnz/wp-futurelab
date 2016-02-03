@@ -1,0 +1,22 @@
+{
+  "name": "wp-futurelab",
+  "version": "0.0.1",
+  "description": "Cool futurelab theme",
+  "author": "FutureLab <contact@futurelab.co.nz>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pojke/wp-futurelab.git"
+  },
+  "bugs": {
+    "url": "https://github.com/pojke/wp-futurelab/issues"
+  },
+  "keywords": [
+    "wordpress",
+    "angular"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.x",
+    "jquery": "~2.1"
+  },
+  "licence": "GPL"
+}
