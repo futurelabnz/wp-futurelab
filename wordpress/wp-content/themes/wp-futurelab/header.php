@@ -39,15 +39,21 @@
                   <span class="icon-bar"></span>
                 </button>
                 <div class="site-branding">
-                  <?php if ( is_front_page() && is_home() ) : ?>
-                    <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                  <?php if ( get_theme_mod( 'site_logo' ) ) : ?>
+                    <div class='site-logo'>
+                        <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php bloginfo( 'name' ); ?>' rel='home'><img src='<?php echo esc_url( get_theme_mod( 'site_logo' ) ); ?>' alt='<?php bloginfo( 'name' ); ?>'></a>
+                    </div>
                   <?php else : ?>
-                    <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-                  <?php endif;
+                    <?php if ( is_front_page() && is_home() ) : ?>
+                      <h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
+                    <?php else : ?>
+                      <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
+                    <?php endif;
 
-                  $description = get_bloginfo( 'description', 'display' );
-                  if ( $description || is_customize_preview() ) : ?>
-                    <p class="site-description"><?php echo $description; ?></p>
+                    $description = get_bloginfo( 'description', 'display' );
+                    if ( $description || is_customize_preview() ) : ?>
+                      <p class="site-description"><?php echo $description; ?></p>
+                    <?php endif; ?>
                   <?php endif; ?>
                 </div><!-- .site-branding -->
               </div>

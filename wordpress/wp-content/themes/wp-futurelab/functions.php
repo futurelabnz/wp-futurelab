@@ -435,3 +435,20 @@ function wp_futurelab_widget_tag_cloud_args( $args ) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'wp_futurelab_widget_tag_cloud_args' );
+
+/**
+ * This hook gives you access to the $wp_customize object, which is an instance of the WP_Customize_Manager class. It is this class object that controls the Theme Customizer screen.
+ *
+ * @since wp-futurelab 1.0
+ *
+ */
+function wp_futurelab_customizer( $wp_customize ) {
+  //Add site logo upload function under Site Identity
+  $wp_customize->add_setting('site_logo');
+  $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'site_logo', array(
+      'label'   => __('Site Logo', 'wp_futurelab'),
+      'section' => 'title_tagline',
+      'settings'=> 'site_logo',
+  )));
+}
+add_action( 'customize_register', 'wp_futurelab_customizer' );
