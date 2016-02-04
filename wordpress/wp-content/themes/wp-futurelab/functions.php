@@ -187,6 +187,26 @@ function wp_futurelab_widgets_init() {
     'before_title' => '<h5>',
     'after_title' => '</h5>'
   ));
+
+	register_sidebar( array(
+		'name'          => __( 'Footer Bottom 1', 'wp_futurelab' ),
+		'id'            => 'footer_bottom_1',
+		'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'wp_futurelab' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+
+	register_sidebar( array(
+		'name'          => __( 'Footer Bottom 2', 'wp_futurelab' ),
+		'id'            => 'footer_bottom_2',
+		'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'wp_futurelab' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
 }
 add_action( 'widgets_init', 'wp_futurelab_widgets_init' );
 

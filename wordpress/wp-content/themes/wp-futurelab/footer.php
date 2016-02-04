@@ -53,6 +53,36 @@
           </div>
         </div>
       </div>
+      <div class="footer_bottom">
+        <div class="container">
+          <div class="row">
+            <?php
+              //both sidebar active 2 columns, otherwise single column
+              if ( is_active_sidebar( 'footer_bottom_1' ) && is_active_sidebar( 'footer_bottom_2' ) ) {
+                $contentBottomColumn = 6;
+              }else{
+                $contentBottomColumn = 12;
+              }
+            ?>
+
+            <?php if ( is_active_sidebar( 'footer_bottom_1' ) ) : ?>
+              <div class="col-md-<?php echo $contentBottomColumn; ?>">
+                <div class="widget-area">
+                  <?php dynamic_sidebar( 'footer_bottom_1' ); ?>
+                </div><!-- .widget-area -->
+              </div>
+            <?php endif; ?>
+
+            <?php if ( is_active_sidebar( 'footer_bottom_2' ) ) : ?>
+              <div class="col-md-<?php echo $contentBottomColumn; ?>">
+                <div class="widget-area">
+                  <?php dynamic_sidebar( 'footer_bottom_2' ); ?>
+                </div><!-- .widget-area -->
+              </div>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
 		</footer><!-- .site-footer -->
 	</div><!-- .site-inner -->
 </div><!-- .site -->
