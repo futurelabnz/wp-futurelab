@@ -193,23 +193,17 @@ function wp_futurelab_scripts() {
   // Main stylesheet
   wp_enqueue_style( 'main-style', get_template_directory_uri() . '/css/main.css' );
   
+  // Theme stylesheet.
+	wp_enqueue_style( 'wp_futurelab-style', get_stylesheet_uri() );
+  
   // Add bootstrap.
-  wp_enqueue_style( 'bootstrap-style', get_template_directory_uri() . '/node_modules/bootstrap/dist/css/bootstrap.min.css' );
-	wp_enqueue_style( 'bootstrap-theme-style', get_template_directory_uri() . '/node_modules/bootstrap/dist/css/bootstrap-theme.min.css' );
   wp_enqueue_script( 'bootstrap-script', get_template_directory_uri() . '/node_modules/bootstrap/dist/js/bootstrap.min.js', array(), false, true );
   
   //SmartMenus jQuery Bootstrap Addon
-  wp_enqueue_style( 'smartMenus-style', get_template_directory_uri() . '/css/jquery.smartmenus.bootstrap.css' );
   wp_enqueue_script( 'smartMenus-script', get_template_directory_uri() . '/js/jquery.smartmenus.min.js', array(), false, true );
   wp_enqueue_script( 'smartMenus-bootstrap-script', get_template_directory_uri() . '/js/jquery.smartmenus.bootstrap.min.js', array(), false, true );
   
   wp_enqueue_script( 'jquery' );
-
-  // Add fontawesome.
-	wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/css/font-awesome.min.css' );
-
-	// Theme stylesheet.
-	wp_enqueue_style( 'wp_futurelab-style', get_stylesheet_uri() );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
