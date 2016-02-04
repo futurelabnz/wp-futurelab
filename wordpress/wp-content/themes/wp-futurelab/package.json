@@ -16,7 +16,8 @@
   ],
   "dependencies": {
     "bootstrap": "~3.x",
-    "jquery": "~2.1"
+    "jquery": "~2.1",
+	"normalize.css": "~3.0.x"
   },
   "licence": "GPL"
 }
