@@ -1,16 +1,13 @@
 <?php
 /**
- * Twenty Sixteen Customizer functionality
+ * Customizer functionality
  *
- * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
+ * @package wp-futurelab
  */
 
 /**
  * Sets up the WordPress core custom header and custom background features.
  *
- * @since Twenty Sixteen 1.0
  *
  * @see wp_futurelab_header_style()
  */
@@ -20,9 +17,8 @@ function wp_futurelab_custom_header_and_background() {
 	$default_text_color       = trim( $color_scheme[3], '#' );
 
 	/**
-	 * Filter the arguments used when adding 'custom-background' support in Twenty Sixteen.
+	 * Filter the arguments used when adding 'custom-background'
 	 *
-	 * @since Twenty Sixteen 1.0
 	 *
 	 * @param array $args {
 	 *     An array of custom-background support arguments.
@@ -35,9 +31,8 @@ function wp_futurelab_custom_header_and_background() {
 	) ) );
 
 	/**
-	 * Filter the arguments used when adding 'custom-header' support in Twenty Sixteen.
+	 * Filter the arguments used when adding 'custom-header'
 	 *
-	 * @since Twenty Sixteen 1.0
 	 *
 	 * @param array $args {
 	 *     An array of custom-header support arguments.
@@ -66,7 +61,6 @@ if ( ! function_exists( 'wp_futurelab_header_style' ) ) :
  *
  * Create your own wp_futurelab_header_style() function to override in a child theme.
  *
- * @since Twenty Sixteen 1.0
  *
  * @see wp_futurelab_custom_header_and_background().
  */
@@ -96,7 +90,6 @@ endif; // wp_futurelab_header_style
 /**
  * Adds postMessage support for site title and description for the Customizer.
  *
- * @since Twenty Sixteen 1.0
  *
  * @param WP_Customize_Manager $wp_customize The Customizer object.
  */
@@ -171,11 +164,19 @@ function wp_futurelab_customize_register( $wp_customize ) {
 		'label'       => __( 'Secondary Text Color', 'wp_futurelab' ),
 		'section'     => 'colors',
 	) ) );
+  
+  //Add site logo upload setting under Site Identity
+  $wp_customize->add_setting('site_logo');
+  $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'site_logo', array(
+      'label'   => __('Site Logo', 'wp_futurelab'),
+      'section' => 'title_tagline',
+      'settings'=> 'site_logo',
+  ) ) );
 }
 add_action( 'customize_register', 'wp_futurelab_customize_register', 11 );
 
 /**
- * Registers color schemes for Twenty Sixteen.
+ * Registers color schemes.
  *
  * Can be filtered with {@see 'wp_futurelab_color_schemes'}.
  *
@@ -186,17 +187,15 @@ add_action( 'customize_register', 'wp_futurelab_customize_register', 11 );
  * 4. Main Text Color.
  * 5. Secondary Text Color.
  *
- * @since Twenty Sixteen 1.0
  *
  * @return array An associative array of color scheme options.
  */
 function wp_futurelab_get_color_schemes() {
 	/**
-	 * Filter the color schemes registered for use with Twenty Sixteen.
+	 * Filter the color schemes registered for use.
 	 *
 	 * The default schemes include 'default', 'dark', 'gray', 'red', and 'yellow'.
 	 *
-	 * @since Twenty Sixteen 1.0
 	 *
 	 * @param array $schemes {
 	 *     Associative array of color schemes data.
@@ -267,11 +266,10 @@ function wp_futurelab_get_color_schemes() {
 
 if ( ! function_exists( 'wp_futurelab_get_color_scheme' ) ) :
 /**
- * Retrieves the current Twenty Sixteen color scheme.
+ * Retrieves the current color scheme.
  *
  * Create your own wp_futurelab_get_color_scheme() function to override in a child theme.
  *
- * @since Twenty Sixteen 1.0
  *
  * @return array An associative array of either the current or default color scheme HEX values.
  */
@@ -289,12 +287,10 @@ endif; // wp_futurelab_get_color_scheme
 
 if ( ! function_exists( 'wp_futurelab_get_color_scheme_choices' ) ) :
 /**
- * Retrieves an array of color scheme choices registered for Twenty Sixteen.
+ * Retrieves an array of color scheme choices registered.
  *
  * Create your own wp_futurelab_get_color_scheme_choices() function to override
  * in a child theme.
- *
- * @since Twenty Sixteen 1.0
  *
  * @return array Array of color schemes.
  */
@@ -313,12 +309,10 @@ endif; // wp_futurelab_get_color_scheme_choices
 
 if ( ! function_exists( 'wp_futurelab_sanitize_color_scheme' ) ) :
 /**
- * Handles sanitization for Twenty Sixteen color schemes.
+ * Handles sanitization for color schemes.
  *
  * Create your own wp_futurelab_sanitize_color_scheme() function to override
  * in a child theme.
- *
- * @since Twenty Sixteen 1.0
  *
  * @param string $value Color scheme name value.
  * @return string Color scheme name.
@@ -337,7 +331,6 @@ endif; // wp_futurelab_sanitize_color_scheme
 /**
  * Enqueues front-end CSS for color scheme.
  *
- * @since Twenty Sixteen 1.0
  *
  * @see wp_add_inline_style()
  */
@@ -381,7 +374,6 @@ add_action( 'wp_enqueue_scripts', 'wp_futurelab_color_scheme_css' );
  *
  * Passes color scheme data as colorScheme global.
  *
- * @since Twenty Sixteen 1.0
  */
 function wp_futurelab_customize_control_js() {
 	wp_enqueue_script( 'color-scheme-control', get_template_directory_uri() . '/js/color-scheme-control.js', array( 'customize-controls', 'iris', 'underscore', 'wp-util' ), '20150926', true );
@@ -392,7 +384,6 @@ add_action( 'customize_controls_enqueue_scripts', 'wp_futurelab_customize_contro
 /**
  * Binds JS handlers to make the Customizer preview reload changes asynchronously.
  *
- * @since Twenty Sixteen 1.0
  */
 function wp_futurelab_customize_preview_js() {
 	wp_enqueue_script( 'wp_futurelab-customize-preview', get_template_directory_uri() . '/js/customize-preview.js', array( 'customize-preview' ), '20150922', true );
@@ -402,7 +393,6 @@ add_action( 'customize_preview_init', 'wp_futurelab_customize_preview_js' );
 /**
  * Returns CSS for the color schemes.
  *
- * @since Twenty Sixteen 1.0
  *
  * @param array $colors Color scheme colors.
  * @return string Color scheme CSS.
@@ -718,7 +708,6 @@ CSS;
  * The template generates the css dynamically for instant display in the
  * Customizer preview.
  *
- * @since Twenty Sixteen 1.0
  */
 function wp_futurelab_color_scheme_css_template() {
 	$colors = array(
@@ -740,7 +729,6 @@ add_action( 'customize_controls_print_footer_scripts', 'wp_futurelab_color_schem
 /**
  * Enqueues front-end CSS for the page background color.
  *
- * @since Twenty Sixteen 1.0
  *
  * @see wp_add_inline_style()
  */
@@ -813,7 +801,6 @@ add_action( 'wp_enqueue_scripts', 'wp_futurelab_page_background_color_css', 11 )
 /**
  * Enqueues front-end CSS for the link color.
  *
- * @since Twenty Sixteen 1.0
  *
  * @see wp_add_inline_style()
  */
@@ -909,7 +896,6 @@ add_action( 'wp_enqueue_scripts', 'wp_futurelab_link_color_css', 11 );
 /**
  * Enqueues front-end CSS for the main text color.
  *
- * @since Twenty Sixteen 1.0
  *
  * @see wp_add_inline_style()
  */
@@ -1056,7 +1042,6 @@ add_action( 'wp_enqueue_scripts', 'wp_futurelab_main_text_color_css', 11 );
 /**
  * Enqueues front-end CSS for the secondary text color.
  *
- * @since Twenty Sixteen 1.0
  *
  * @see wp_add_inline_style()
  */

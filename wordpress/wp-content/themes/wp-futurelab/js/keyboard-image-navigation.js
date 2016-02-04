@@ -1,5 +1,5 @@
 /**
- * Twenty Sixteen keyboard support for image navigation.
+ * keyboard support for image navigation.
  */
 
 ( function( $ ) {

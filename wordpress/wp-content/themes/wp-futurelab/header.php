@@ -2,11 +2,9 @@
 /**
  * The template for displaying the header
  *
- * Displays all of the head element and everything up until the "site-content" div.
+ * Displays all of the head element and everything up until the ".row" div.
  *
- * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
+ * @package wp-futurelab
  */
 
 ?><!DOCTYPE html>
@@ -33,7 +31,7 @@
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-primary-collapse">
-                  <span class="sr-only"><?php esc_html_e( 'Toggle navigation', 'webhatchery' ); ?></span>
+                  <span class="sr-only"><?php esc_html_e( 'Toggle navigation', 'wp_futurelab' ); ?></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
@@ -79,7 +77,6 @@
 					/**
 					 * Filter the default wp_futurelab custom header sizes attribute.
 					 *
-					 * @since Twenty Sixteen 1.0
 					 *
 					 * @param string $custom_header_sizes sizes attribute
 					 * for Custom Header. Default '(max-width: 709px) 85vw,

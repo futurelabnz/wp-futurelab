@@ -1,36 +1,11 @@
 <?php
 /**
- * Twenty Sixteen functions and definitions
+ * wp-futurelab functions and definitions
  *
- * Set up the theme and provides some helper functions, which are used in the
- * theme as custom template tags. Others are attached to action and filter
- * hooks in WordPress to change core functionality.
  *
- * When using a child theme you can override certain functions (those wrapped
- * in a function_exists() call) by defining them first in your child theme's
- * functions.php file. The child theme's functions.php file is included before
- * the parent theme's file, so the child theme functions would be used.
- *
- * @link https://codex.wordpress.org/Theme_Development
- * @link https://codex.wordpress.org/Child_Themes
- *
- * Functions that are not pluggable (not wrapped in function_exists()) are
- * instead attached to a filter or action hook.
- *
- * For more information on hooks, actions, and filters,
- * {@link https://codex.wordpress.org/Plugin_API}
- *
- * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
+ * @package wp-futurelab
  */
 
-/**
- * Twenty Sixteen only works in WordPress 4.4 or later.
- */
-if ( version_compare( $GLOBALS['wp_version'], '4.4-alpha', '<' ) ) {
-	require get_template_directory() . '/inc/back-compat.php';
-}
 
 /**
  * Siteorigin plugins
@@ -53,14 +28,11 @@ if ( ! function_exists( 'wp_futurelab_setup' ) ) :
  *
  * Create your own wp_futurelab_setup() function to override in a child theme.
  *
- * @since Twenty Sixteen 1.0
  */
 function wp_futurelab_setup() {
 	/*
 	 * Make theme available for translation.
 	 * Translations can be filed in the /languages/ directory.
-	 * If you're building a theme based on Twenty Sixteen, use a find and replace
-	 * to change 'wp_futurelab' to the name of your theme in all the template files
 	 */
 	load_theme_textdomain( 'wp_futurelab', get_template_directory() . '/languages' );
 
@@ -83,7 +55,7 @@ function wp_futurelab_setup() {
 	add_theme_support( 'post-thumbnails' );
 	set_post_thumbnail_size( 1200, 9999 );
 
-	// This theme uses wp_nav_menu() in two locations.
+	// This theme uses primary menu in top locations.
 	register_nav_menus( array(
 		'primary' => __( 'Primary Menu', 'wp_futurelab' ),
 	) );
@@ -117,35 +89,16 @@ function wp_futurelab_setup() {
 		'chat',
 	) );
 
-	/*
-	 * This theme styles the visual editor to resemble the theme style,
-	 * specifically font, colors, icons, and column width.
-	 */
-	add_editor_style( array( 'css/editor-style.css', wp_futurelab_fonts_url() ) );
 }
 endif; // wp_futurelab_setup
 add_action( 'after_setup_theme', 'wp_futurelab_setup' );
 
-/**
- * Sets the content width in pixels, based on the theme's design and stylesheet.
- *
- * Priority 0 to make it available to lower priority callbacks.
- *
- * @global int $content_width
- *
- * @since Twenty Sixteen 1.0
- */
-function wp_futurelab_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'wp_futurelab_content_width', 840 );
-}
-add_action( 'after_setup_theme', 'wp_futurelab_content_width', 0 );
 
 /**
  * Registers a widget area.
  *
  * @link https://developer.wordpress.org/reference/functions/register_sidebar/
  *
- * @since wp-futurelab 1.0
  */
 function wp_futurelab_widgets_init() {
   
@@ -221,53 +174,11 @@ function wp_futurelab_widgets_init() {
 }
 add_action( 'widgets_init', 'wp_futurelab_widgets_init' );
 
-if ( ! function_exists( 'wp_futurelab_fonts_url' ) ) :
-/**
- * Register Google fonts for Twenty Sixteen.
- *
- * Create your own wp_futurelab_fonts_url() function to override in a child theme.
- *
- * @since Twenty Sixteen 1.0
- *
- * @return string Google fonts URL for the theme.
- */
-function wp_futurelab_fonts_url() {
-	$fonts_url = '';
-	$fonts     = array();
-	$subsets   = 'latin,latin-ext';
-
-	/* translators: If there are characters in your language that are not supported by Merriweather, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Merriweather font: on or off', 'wp_futurelab' ) ) {
-		$fonts[] = 'Merriweather:400,700,900,400italic,700italic,900italic';
-	}
-
-	/* translators: If there are characters in your language that are not supported by Montserrat, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Montserrat font: on or off', 'wp_futurelab' ) ) {
-		$fonts[] = 'Montserrat:400,700';
-	}
-
-	/* translators: If there are characters in your language that are not supported by Inconsolata, translate this to 'off'. Do not translate into your own language. */
-	if ( 'off' !== _x( 'on', 'Inconsolata font: on or off', 'wp_futurelab' ) ) {
-		$fonts[] = 'Inconsolata:400';
-	}
-
-	if ( $fonts ) {
-		$fonts_url = add_query_arg( array(
-			'family' => urlencode( implode( '|', $fonts ) ),
-			'subset' => urlencode( $subsets ),
-		), 'https://fonts.googleapis.com/css' );
-	}
-
-	return $fonts_url;
-}
-endif;
-
 /**
  * Handles JavaScript detection.
  *
  * Adds a `js` class to the root `<html>` element when JavaScript is detected.
  *
- * @since Twenty Sixteen 1.0
  */
 function wp_futurelab_javascript_detection() {
 	echo "<script>(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);</script>\n";
@@ -277,7 +188,6 @@ add_action( 'wp_head', 'wp_futurelab_javascript_detection', 0 );
 /**
  * Enqueues scripts and styles.
  *
- * @since Twenty Sixteen 1.0
  */
 function wp_futurelab_scripts() {
   // Main stylesheet
@@ -297,35 +207,9 @@ function wp_futurelab_scripts() {
 
   // Add fontawesome.
 	wp_enqueue_style( 'fontawesome-style', get_template_directory_uri() . '/css/font-awesome.min.css' );
-  
-
-  
-	// Add custom fonts, used in the main stylesheet.
-	wp_enqueue_style( 'wp_futurelab-fonts', wp_futurelab_fonts_url(), array(), null );
-
-	// Add Genericons, used in the main stylesheet.
-	wp_enqueue_style( 'genericons', get_template_directory_uri() . '/genericons/genericons.css', array(), '3.4.1' );
 
 	// Theme stylesheet.
 	wp_enqueue_style( 'wp_futurelab-style', get_stylesheet_uri() );
-
-	// Load the Internet Explorer specific stylesheet.
-	wp_enqueue_style( 'wp_futurelab-ie', get_template_directory_uri() . '/css/ie.css', array( 'wp_futurelab-style' ), '20150930' );
-	wp_style_add_data( 'wp_futurelab-ie', 'conditional', 'lt IE 10' );
-
-	// Load the Internet Explorer 8 specific stylesheet.
-	wp_enqueue_style( 'wp_futurelab-ie8', get_template_directory_uri() . '/css/ie8.css', array( 'wp_futurelab-style' ), '20151230' );
-	wp_style_add_data( 'wp_futurelab-ie8', 'conditional', 'lt IE 9' );
-
-	// Load the Internet Explorer 7 specific stylesheet.
-	wp_enqueue_style( 'wp_futurelab-ie7', get_template_directory_uri() . '/css/ie7.css', array( 'wp_futurelab-style' ), '20150930' );
-	wp_style_add_data( 'wp_futurelab-ie7', 'conditional', 'lt IE 8' );
-
-	// Load the html5 shiv.
-	wp_enqueue_script( 'wp_futurelab-html5', get_template_directory_uri() . '/js/html5.js', array(), '3.7.3' );
-	wp_script_add_data( 'wp_futurelab-html5', 'conditional', 'lt IE 9' );
-
-	wp_enqueue_script( 'wp_futurelab-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151112', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -337,17 +221,11 @@ function wp_futurelab_scripts() {
 
 	wp_enqueue_script( 'wp_futurelab-script', get_template_directory_uri() . '/js/functions.js', array( 'jquery' ), '20151204', true );
 
-	wp_localize_script( 'wp_futurelab-script', 'screenReaderText', array(
-		'expand'   => __( 'expand child menu', 'wp_futurelab' ),
-		'collapse' => __( 'collapse child menu', 'wp_futurelab' ),
-	) );
 }
 add_action( 'wp_enqueue_scripts', 'wp_futurelab_scripts' );
 
 /**
  * Adds custom classes to the array of body classes.
- *
- * @since Twenty Sixteen 1.0
  *
  * @param array $classes Classes for the body element.
  * @return array (Maybe) filtered body classes.
@@ -380,7 +258,6 @@ add_filter( 'body_class', 'wp_futurelab_body_classes' );
 /**
  * Converts a HEX value to RGB.
  *
- * @since Twenty Sixteen 1.0
  *
  * @param string $color The original color, in 3- or 6-digit hexadecimal form.
  * @return array Array containing RGB (red, green, and blue) values for the given
@@ -418,7 +295,6 @@ require get_template_directory() . '/inc/customizer.php';
  * Add custom image sizes attribute to enhance responsive image functionality
  * for content images
  *
- * @since Twenty Sixteen 1.0
  *
  * @param string $sizes A source size value for use in a 'sizes' attribute.
  * @param array  $size  Image size. Accepts an array of width and height
@@ -445,7 +321,6 @@ add_filter( 'wp_calculate_image_sizes', 'wp_futurelab_content_image_sizes_attr',
  * Add custom image sizes attribute to enhance responsive image functionality
  * for post thumbnails
  *
- * @since Twenty Sixteen 1.0
  *
  * @param array $attr Attributes for the image markup.
  * @param int   $attachment Image attachment ID.
@@ -464,7 +339,6 @@ add_filter( 'wp_get_attachment_image_attributes', 'wp_futurelab_post_thumbnail_s
 /**
  * Modifies tag cloud widget arguments to have all tags in the widget same font size.
  *
- * @since Twenty Sixteen 1.1
  *
  * @param array $args Arguments for tag cloud widget.
  * @return array A new modified arguments.
@@ -477,19 +351,3 @@ function wp_futurelab_widget_tag_cloud_args( $args ) {
 }
 add_filter( 'widget_tag_cloud_args', 'wp_futurelab_widget_tag_cloud_args' );
 
-/**
- * This hook gives you access to the $wp_customize object, which is an instance of the WP_Customize_Manager class. It is this class object that controls the Theme Customizer screen.
- *
- * @since wp-futurelab 1.0
- *
- */
-function wp_futurelab_customizer( $wp_customize ) {
-  //Add site logo upload function under Site Identity
-  $wp_customize->add_setting('site_logo');
-  $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'site_logo', array(
-      'label'   => __('Site Logo', 'wp_futurelab'),
-      'section' => 'title_tagline',
-      'settings'=> 'site_logo',
-  )));
-}
-add_action( 'customize_register', 'wp_futurelab_customizer' );

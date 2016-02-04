@@ -1,5 +1,4 @@
 <?php
-	
 /**
  * Walker_Nav_Primary extends wp walker nav menu
  *

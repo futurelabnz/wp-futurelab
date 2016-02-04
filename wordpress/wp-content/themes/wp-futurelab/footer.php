@@ -1,12 +1,10 @@
 <?php
 /**
  * The template for displaying the footer
+ * footer 3 columns
+ * footer bottom 2 columns
  *
- * Contains the closing of the #content div and all content after
- *
- * @package WordPress
- * @subpackage Twenty_Sixteen
- * @since Twenty Sixteen 1.0
+ * @package wp-futurelab
  */
 ?>
         
