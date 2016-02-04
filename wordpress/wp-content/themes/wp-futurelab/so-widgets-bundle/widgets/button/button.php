@@ -176,7 +176,7 @@ class SiteOrigin_Widget_Button_Widget extends SiteOrigin_Widget {
 			array(
 				array(
 					'sow-button-base',
-					plugin_dir_url(__FILE__) . 'css/style.css',
+					SOW_BUNDLE_URI . 'widgets/button/' . 'css/style.css',
 					array(),
 					SOW_BUNDLE_VERSION
 				),

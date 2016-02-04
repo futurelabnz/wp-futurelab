@@ -79,7 +79,7 @@ class SiteOrigin_Widget_Cta_Widget extends SiteOrigin_Widget {
 			array(
 				array(
 					'sow-cta-main',
-					plugin_dir_url(__FILE__) . 'css/style.css',
+					SOW_BUNDLE_URI . 'widgets/cta/' . 'css/style.css',
 					array(),
 					SOW_BUNDLE_VERSION
 				)

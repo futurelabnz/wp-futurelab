@@ -86,7 +86,7 @@ class SiteOrigin_Widget_PostCarousel_Widget extends SiteOrigin_Widget {
 			array(
 				array(
 					'sow-carousel-basic',
-					plugin_dir_url(__FILE__) . 'css/style.css',
+					SOW_BUNDLE_URI . 'widgets/post-carousel/' . 'css/style.css',
 					array(),
 					SOW_BUNDLE_VERSION
 				)

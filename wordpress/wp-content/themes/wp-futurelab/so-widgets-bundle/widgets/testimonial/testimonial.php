@@ -246,7 +246,7 @@ class SiteOrigin_Widgets_Testimonials_Widget extends SiteOrigin_Widget {
 		$this->register_frontend_styles( array(
 			array(
 				'sow-testimonial',
-				plugin_dir_url(__FILE__) . 'css/style.css'
+				SOW_BUNDLE_URI . 'widgets/testimonial/' . 'css/style.css',
 			)
 		) );
 	}

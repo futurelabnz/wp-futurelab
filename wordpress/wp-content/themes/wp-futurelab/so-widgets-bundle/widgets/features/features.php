@@ -210,7 +210,7 @@ class SiteOrigin_Widget_Features_Widget extends SiteOrigin_Widget {
 			array(
 				array(
 					'siteorigin-widgets',
-					plugin_dir_url(__FILE__) . 'css/style.css',
+					SOW_BUNDLE_URI . 'widgets/features/' . 'css/style.css',
 					array(),
 					SOW_BUNDLE_VERSION
 				)

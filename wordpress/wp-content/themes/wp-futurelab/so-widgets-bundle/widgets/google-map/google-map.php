@@ -366,7 +366,7 @@ class SiteOrigin_Widget_GoogleMap_Widget extends SiteOrigin_Widget {
 			array(
 				array(
 					'sow-google-map',
-					plugin_dir_url(__FILE__) . 'js/js-map' . SOW_BUNDLE_JS_SUFFIX . '.js',
+					SOW_BUNDLE_URI . 'widgets/google-map/' . 'js/js-map' . SOW_BUNDLE_JS_SUFFIX . '.js',
 					array( 'jquery' ),
 					SOW_BUNDLE_VERSION
 				)
@@ -376,7 +376,7 @@ class SiteOrigin_Widget_GoogleMap_Widget extends SiteOrigin_Widget {
 			array(
 				array(
 					'sow-google-map',
-					plugin_dir_url(__FILE__) . 'css/style.css',
+					SOW_BUNDLE_URI . 'widgets/google-map/' . 'css/style.css',
 					array(),
 					SOW_BUNDLE_VERSION
 				)
