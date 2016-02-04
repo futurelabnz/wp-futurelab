@@ -145,7 +145,7 @@ add_action( 'after_setup_theme', 'wp_futurelab_content_width', 0 );
  *
  * @link https://developer.wordpress.org/reference/functions/register_sidebar/
  *
- * @since Twenty Sixteen 1.0
+ * @since wp-futurelab 1.0
  */
 function wp_futurelab_widgets_init() {
 	register_sidebar( array(
@@ -157,26 +157,36 @@ function wp_futurelab_widgets_init() {
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
 	) );
+  
+  register_sidebar(array(
+    'name' => 'Footer Column 1',
+    'id' => 'footer_column_1',
+    'description' => 'Footer Column 1',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h5>',
+    'after_title' => '</h5>'
+  ));
 
-	register_sidebar( array(
-		'name'          => __( 'Content Bottom 1', 'wp_futurelab' ),
-		'id'            => 'sidebar-2',
-		'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'wp_futurelab' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+  register_sidebar(array(
+    'name' => 'Footer Column 2',
+    'id' => 'footer_column_2',
+    'description' => 'Footer Column 2',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h5>',
+    'after_title' => '</h5>'
+  ));
 
-	register_sidebar( array(
-		'name'          => __( 'Content Bottom 2', 'wp_futurelab' ),
-		'id'            => 'sidebar-3',
-		'description'   => __( 'Appears at the bottom of the content on posts and pages.', 'wp_futurelab' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+  register_sidebar(array(
+    'name' => 'Footer column 3',
+    'id' => 'footer_column_3',
+    'description' => 'Footer Column 3',
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h5>',
+    'after_title' => '</h5>'
+  ));
 }
 add_action( 'widgets_init', 'wp_futurelab_widgets_init' );
 

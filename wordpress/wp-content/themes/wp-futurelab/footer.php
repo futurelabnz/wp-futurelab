@@ -9,24 +9,48 @@
  * @since Twenty Sixteen 1.0
  */
 ?>
-
+        
+      </div><!-- .row -->
 		</div><!-- .container -->
 
 		<footer id="colophon" class="site-footer" role="contentinfo">
+      <div class="footer_top">
         <div class="container">
           <div class="row">
-            <div class="site-info">
-              <?php
-                /**
-                 * Fires before the wp_futurelab footer text for footer customization.
-                 *
-                 * @since Twenty Sixteen 1.0
-                 */
-                do_action( 'wp_futurelab_credits' );
-              ?>
-              <span class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></span>
-              <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'wp_futurelab' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'wp_futurelab' ), 'WordPress' ); ?></a>
-            </div><!-- .site-info -->
+            <?php
+              //count for active sidebar
+              $footerColArray = array(is_active_sidebar( 'footer_column_1' ), is_active_sidebar( 'footer_column_2' ), is_active_sidebar( 'footer_column_3' ));
+              if(count(array_filter($footerColArray)) == 0){
+                $footerColumn = 12;
+              }else{
+                $footerColumn = 12 / count(array_filter($footerColArray));
+              }
+            ?>
+
+            <?php if ( is_active_sidebar( 'footer_column_1' ) ) : ?>
+              <div class="col-md-<?php echo $footerColumn; ?>">
+                <div class="widget-area">
+                  <?php dynamic_sidebar( 'footer_column_1' ); ?>
+                </div><!-- .widget-area -->
+              </div>
+            <?php endif; ?>
+
+            <?php if ( is_active_sidebar( 'footer_column_2' ) ) : ?>
+              <div class="col-md-<?php echo $footerColumn; ?>">
+                <div class="widget-area">
+                  <?php dynamic_sidebar( 'footer_column_2' ); ?>
+                </div><!-- .widget-area -->
+              </div>
+            <?php endif; ?>
+              
+            <?php if ( is_active_sidebar( 'footer_column_3' ) ) : ?>
+              <div class="col-md-<?php echo $footerColumn; ?>">
+                <div class="widget-area">
+                  <?php dynamic_sidebar( 'footer_column_3' ); ?>
+                </div><!-- .widget-area -->
+              </div>
+            <?php endif; ?>
+          </div>
         </div>
       </div>
 		</footer><!-- .site-footer -->

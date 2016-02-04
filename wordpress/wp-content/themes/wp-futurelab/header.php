@@ -65,7 +65,6 @@
                   'menu_class'     => 'nav navbar-nav navbar-right',
                   'walker'         => new Walker_Nav_Primary()
                 ) ); ?>
-                <?php dynamic_sidebar( 'navbar-right' ); ?>
               </div><!--.navbar-collapse-->
           </div>
           <!-- /.container-fluid -->
@@ -92,3 +91,4 @@
 		</header><!-- .site-header -->
 
 		<div id="content" class="container">
+        <div class="row">
