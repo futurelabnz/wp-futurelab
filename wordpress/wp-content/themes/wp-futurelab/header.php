@@ -56,17 +56,20 @@
                 </div><!-- .site-branding -->
               </div>
 
-              <div class="collapse navbar-collapse navbar-primary-collapse navbar-right">
-                <?php wp_nav_menu( array(
-                  'theme_location' => 'primary',
-                  'container'      => false,
-                  'menu_class'     => 'nav navbar-nav',
-                  'walker'         => new Walker_Nav_Primary()
-                ) ); ?>
-                  <?php if ( is_active_sidebar( 'header_right' )  ) : ?>
-                    <?php dynamic_sidebar( 'header_right' ); ?>
-              <?php endif; ?>
-              </div><!--.navbar-collapse-->
+              <div class="header-right navbar-right">
+                <div class="collapse navbar-collapse navbar-primary-collapse navbar-left">
+                  <?php wp_nav_menu( array(
+                    'theme_location' => 'primary',
+                    'container'      => false,
+                    'menu_class'     => 'nav navbar-nav',
+                    'walker'         => new Walker_Nav_Primary()
+                  ) ); ?>
+
+                </div><!--.navbar-collapse-->
+                <?php if ( is_active_sidebar( 'header_right' )  ) : ?>
+                      <?php dynamic_sidebar( 'header_right' ); ?>
+                <?php endif; ?>
+              </div>
               
               
           </div>
