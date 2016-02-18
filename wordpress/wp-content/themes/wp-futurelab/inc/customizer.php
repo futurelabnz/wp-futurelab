@@ -30,28 +30,6 @@ function wp_futurelab_custom_header_and_background() {
 		'default-color' => $default_background_color,
 	) ) );
 
-	/**
-	 * Filter the arguments used when adding 'custom-header'
-	 *
-	 *
-	 * @param array $args {
-	 *     An array of custom-header support arguments.
-	 *
-	 *     @type string $default-text-color Default color of the header text.
-	 *     @type int      $width            Width in pixels of the custom header image. Default 1200.
-	 *     @type int      $height           Height in pixels of the custom header image. Default 280.
-	 *     @type bool     $flex-height      Whether to allow flexible-height header images. Default true.
-	 *     @type callable $wp-head-callback Callback function used to style the header image and text
-	 *                                      displayed on the blog.
-	 * }
-	 */
-	add_theme_support( 'custom-header', apply_filters( 'wp_futurelab_custom_header_args', array(
-		'default-text-color'     => $default_text_color,
-		'width'                  => 1200,
-		'height'                 => 280,
-		'flex-height'            => true,
-		'wp-head-callback'       => 'wp_futurelab_header_style',
-	) ) );
 }
 add_action( 'after_setup_theme', 'wp_futurelab_custom_header_and_background' );
 
