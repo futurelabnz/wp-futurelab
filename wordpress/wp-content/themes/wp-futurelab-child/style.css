@@ -1,0 +1,20 @@
+/*
+Theme Name: Futurelab theme - child
+Theme URI: http://www.futurelab.co.nz
+Description: A child theme of Futurelab theme
+Author: Futurelab
+Author URI: http://www.futurelab.co.nz
+Version: 1.0.0
+Template: wp-futurelab
+*/
+
+
+@import url("style-child.css");
+
+@font-face {
+	font-family: 'HelveticaNeue-light';
+	src:url(font/HelveticaNeueCyr-Light.eot); 
+	src:url(font/HelveticaNeueCyr-Light.ttf); 
+	src:url(font/HelveticaNeueCyr-Light.svg); 
+	src:url(font/HelveticaNeueCyr-Light.woff); 
+}
