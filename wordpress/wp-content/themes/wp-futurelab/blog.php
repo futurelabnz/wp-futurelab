@@ -6,7 +6,7 @@ Template Name: Blog
 get_header(); ?>
 <?php query_posts('post_type=post&post_status=publish&posts_per_page=10&paged='. get_query_var('paged')); ?>
   <?php if ( is_active_sidebar( 'sidebar-1' )  ) { ?>
-    <div class="col-md-8">
+    <div class="col-md-9">
   <?php }else{ ?>
     <div class="col-md-12">
   <?php } ?>

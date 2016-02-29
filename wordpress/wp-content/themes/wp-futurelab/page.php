@@ -11,7 +11,7 @@
 
 get_header(); ?>
   <?php if ( is_active_sidebar( 'sidebar-1' )  ) { ?>
-    <div class="col-md-8">
+    <div class="col-md-9">
   <?php }else{ ?>
     <div class="col-md-12">
   <?php } ?>

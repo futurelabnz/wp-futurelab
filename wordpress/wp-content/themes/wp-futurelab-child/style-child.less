@@ -5,6 +5,8 @@
 
 
 /*=== Color Variable ===*/
+@blue : #1fa8d1 ;
+
 
 /**
  * Typography
@@ -25,15 +27,21 @@ p   {
     font-size: 15px;
      margin: 0 0 1em;
 }
-a {
-   
+a {   
+color:@blue;
 }
+.main-link {font-family:miso-bold,serif; font-size:21px;}
+.main-link:hover { text-decoration:none; }  
 
+.edit-link { display:none; }
 
 .colour-white {
     color: #fff;
 }
+.home-title { padding:20px 0; }
+.home-text {font-size:14px;}
 
+#content { margin-top:60px; }
 
 
 /*
@@ -60,8 +68,6 @@ a:hover {
   
 }
 
-
-
 .btn-large3x a {
   
 }
@@ -75,6 +81,7 @@ a:hover {
     background:#1fa8d1; border:none;
 }
 
+.entry-header .entry-title { display:none; }
 
 
 /*
@@ -83,7 +90,6 @@ a:hover {
 
 
 .navbar-default {background:;}
-
 
 .navbar-default .navbar-nav>li>a {
     font-family: 'miso-bold', serif;
@@ -94,11 +100,15 @@ a:hover {
     padding: 10px 9px;
     letter-spacing: 0.5;
 }
+.sidebar { background:#ededed; padding:10px; }
 
 
 @media (min-width: 768px) {
+    .site-logo { margin-top:-40px; }
+    .navbar { margin-top:60px; height:55px; }
+
     .header-right {
-        padding: 33px 0;
+        padding: 8px 0;
     }
     .header-btn {
         margin-top: 7px;
@@ -108,15 +118,13 @@ a:hover {
     margin-top: -8px;
     margin-left: 8px;
 }
-
+.sidebar-line { margin-top:10px; margin-bottom:10px; border:1px solid #ddd;}
 
 
 /*
  * Home Page
  */
 
-
- 
 
 
 /*== Woocommerce ==*/
