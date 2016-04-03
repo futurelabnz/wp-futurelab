@@ -16,7 +16,7 @@
     <div class="entry-content">
       <?php
         the_excerpt();
-
+        do_action('wp_futurelab_blog-loop_after_excerpt');
       ?>
     </div><!-- .entry-content -->
   </article><!-- #post-## -->
