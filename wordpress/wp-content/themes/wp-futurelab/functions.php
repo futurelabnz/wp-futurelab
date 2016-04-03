@@ -193,6 +193,9 @@ function wp_futurelab_scripts() {
   // Main stylesheet
   wp_enqueue_style( 'main-style', get_template_directory_uri() . '/css/main.css' );
   
+  // font awesome stylesheet
+  wp_enqueue_style( 'font-awesome-style', get_template_directory_uri() . '/css/font-awesome.min.css' );
+  
   // Theme stylesheet.
 	wp_enqueue_style( 'wp_futurelab-style', get_stylesheet_uri() );
   

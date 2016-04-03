@@ -55,6 +55,7 @@
                   <?php endif; ?>
                 </div><!-- .site-branding -->
               </div>
+
               <div class="header-right navbar-right">
                 <div class="collapse navbar-collapse navbar-primary-collapse navbar-left">
                   <?php wp_nav_menu( array(
@@ -69,9 +70,29 @@
                       <?php dynamic_sidebar( 'header_right' ); ?>
                 <?php endif; ?>
               </div>
+              
+              
           </div>
           <!-- /.container-fluid -->
       </nav>
+			<?php if ( get_header_image() ) : ?>
+				<?php
+					/**
+					 * Filter the default wp_futurelab custom header sizes attribute.
+					 *
+					 *
+					 * @param string $custom_header_sizes sizes attribute
+					 * for Custom Header. Default '(max-width: 709px) 85vw,
+					 * (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px'.
+					 */
+					$custom_header_sizes = apply_filters( 'wp_futurelab_custom_header_sizes', '(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px' );
+				?>
+				<div class="header-image">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<img src="<?php header_image(); ?>" srcset="<?php echo esc_attr( wp_get_attachment_image_srcset( get_custom_header()->attachment_id ) ); ?>" sizes="<?php echo esc_attr( $custom_header_sizes ); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>">
+					</a>
+				</div><!-- .header-image -->
+			<?php endif; // End header image check. ?>
 		</header><!-- .site-header -->
 
 		<div id="content" class="container">
