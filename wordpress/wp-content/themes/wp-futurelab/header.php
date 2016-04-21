@@ -25,7 +25,7 @@
 	<div class="site-inner">
 
 		<header id="masthead" class="site-header" role="banner">
-      <?php if ( is_active_sidebar( 'topbar_left' ) || is_active_sidebar( 'topbar_right' ) ) { ?>
+      <?php if ( is_active_sidebar( 'topbar_left' ) || is_active_sidebar( 'topbar_right' ) ) : ?>
       <!-- Topbar -->
       <div class="topbar">
         <div class="container">
