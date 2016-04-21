@@ -8,9 +8,10 @@
 
 
 /**
- * Unyson plugins
+ * Siteorigin plugins
  */
-require get_template_directory() . '/unyson/unyson.php';
+require get_template_directory() . '/siteorigin-panels/siteorigin-panels.php';
+require get_template_directory() . '/so-widgets-bundle/so-widgets-bundle.php';
 
 /**
  * Custom dropdown menu and navbar in walker class
