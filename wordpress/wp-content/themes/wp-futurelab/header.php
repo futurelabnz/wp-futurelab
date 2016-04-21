@@ -25,11 +25,47 @@
 	<div class="site-inner">
 
 		<header id="masthead" class="site-header" role="banner">
+      <?php if ( is_active_sidebar( 'topbar_left' ) || is_active_sidebar( 'topbar_right' ) ) { ?>
+      <!-- Topbar -->
+      <div class="topbar">
+        <div class="container">
+          <div class="row">
+            <?php
+              //both sidebar active 2 columns, otherwise single column
+              if ( is_active_sidebar( 'topbar_left' ) && is_active_sidebar( 'topbar_right' ) ) {
+                $contentBottomColumn = 6;
+              }else{
+                $contentBottomColumn = 12;
+              }
+            ?>
+
+            <?php if ( is_active_sidebar( 'topbar_left' ) ) : ?>
+              <div class="col-md-<?php echo $contentBottomColumn; ?>">
+                <div class="widget-area">
+                  <?php dynamic_sidebar( 'topbar_left' ); ?>
+                </div><!-- .widget-area -->
+              </div>
+            <?php endif; ?>
+
+            <?php if ( is_active_sidebar( 'topbar_right' ) ) : ?>
+              <div class="col-md-<?php echo $contentBottomColumn; ?>">
+                <div class="widget-area">
+                  <?php dynamic_sidebar( 'topbar_right' ); ?>
+                </div><!-- .widget-area -->
+              </div>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+      <?php endif; ?>
       <!-- Navigation -->
       <nav class="navbar navbar-default">
           <div class="container">
               <!-- Brand and toggle get grouped for better mobile display -->
               <div class="navbar-header">
+                <?php if ( is_active_sidebar( 'header_left' )  ) : ?>
+                  <?php dynamic_sidebar( 'header_left' ); ?>
+                <?php endif; ?>
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-primary-collapse">
                   <span class="sr-only"><?php esc_html_e( 'Toggle navigation', 'wp_futurelab' ); ?></span>
                   <span class="icon-bar"></span>

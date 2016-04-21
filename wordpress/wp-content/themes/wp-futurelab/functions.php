@@ -102,16 +102,6 @@ add_action( 'after_setup_theme', 'wp_futurelab_setup' );
 function wp_futurelab_widgets_init() {
   
   register_sidebar( array(
-		'name'          => __( 'Header Right', 'wp_futurelab' ),
-		'id'            => 'header_right',
-		'description'   => __( 'Header Right', 'wp_futurelab' ),
-		'before_widget' => '<section id="%1$s" class="widget header_right %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '',
-		'after_title'   => '',
-	) );
-  
-	register_sidebar( array(
 		'name'          => __( 'Sidebar', 'wp_futurelab' ),
 		'id'            => 'sidebar-1',
 		'description'   => __( 'Add widgets here to appear in your sidebar.', 'wp_futurelab' ),
@@ -119,6 +109,46 @@ function wp_futurelab_widgets_init() {
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
 		'after_title'   => '</h2>',
+	) );
+  
+  register_sidebar( array(
+		'name'          => __( 'Topbar Left', 'wp_futurelab' ),
+		'id'            => 'topbar_left',
+		'description'   => __( 'Topbar Left', 'wp_futurelab' ),
+		'before_widget' => '<section id="%1$s" class="widget topbar_left %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+  
+  register_sidebar( array(
+		'name'          => __( 'Topbar Right', 'wp_futurelab' ),
+		'id'            => 'topbar_right',
+		'description'   => __( 'Topbar Right', 'wp_futurelab' ),
+		'before_widget' => '<section id="%1$s" class="widget topbar_right %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+  
+  register_sidebar( array(
+		'name'          => __( 'Header Left', 'wp_futurelab' ),
+		'id'            => 'header_left',
+		'description'   => __( 'Header Left', 'wp_futurelab' ),
+		'before_widget' => '<section id="%1$s" class="widget header_left %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '',
+		'after_title'   => '',
+	) );
+  
+	register_sidebar( array(
+		'name'          => __( 'Header Right', 'wp_futurelab' ),
+		'id'            => 'header_right',
+		'description'   => __( 'Header Right', 'wp_futurelab' ),
+		'before_widget' => '<section id="%1$s" class="widget header_right %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '',
+		'after_title'   => '',
 	) );
   
   register_sidebar(array(
