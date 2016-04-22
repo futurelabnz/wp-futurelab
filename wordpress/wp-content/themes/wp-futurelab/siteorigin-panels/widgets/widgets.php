@@ -22,7 +22,7 @@ function origin_widgets_init(){
 add_action('widgets_init', 'origin_widgets_init');
 
 function origin_widgets_enqueue($prefix){
-	if($prefix == 'widgets.php') wp_enqueue_script('origin-widgets-admin-script', SITEORIGIN_PANELS_URI.'/widgets/js/admin.js', array('jquery'), SITEORIGIN_PANELS_VERSION);
+	if($prefix == 'widgets.php') wp_enqueue_script('origin-widgets-admin-script', SITEORIGIN_PANELS_URI.'widgets/js/admin.js', array('jquery'), SITEORIGIN_PANELS_VERSION);
 }
 add_action('admin_enqueue_scripts', 'origin_widgets_enqueue');
 
@@ -449,7 +449,7 @@ abstract class SiteOrigin_Panels_Widget extends WP_Widget{
 			$folders = array(
 				get_stylesheet_directory().'/widgets' => get_stylesheet_directory_uri().'/widgets/widgets',
 				get_template_directory().'/widgets' => get_template_directory_uri().'/widgets',
-				plugin_dir_path(SITEORIGIN_PANELS_BASE_FILE).'widgets/widgets' => plugin_dir_url(SITEORIGIN_PANELS_BASE_FILE).'widgets/widgets',
+				plugin_dir_path(SITEORIGIN_PANELS_BASE_FILE).'widgets/widgets' => SITEORIGIN_PANELS_URI.'widgets/widgets',
 			);
 			$folders = apply_filters('siteorigin_widget_folders', $folders);
 		}
@@ -468,7 +468,7 @@ abstract class SiteOrigin_Panels_Widget extends WP_Widget{
 			$folders = array(
 				get_stylesheet_directory().'/widgets/img' => get_stylesheet_directory_uri().'/widgets/img',
 				get_template_directory().'/widgets/img' => get_template_directory_uri().'/widgets/img',
-				plugin_dir_path(SITEORIGIN_PANELS_BASE_FILE).'widgets/img' => plugin_dir_url(SITEORIGIN_PANELS_BASE_FILE).'widgets/img',
+				plugin_dir_path(SITEORIGIN_PANELS_BASE_FILE).'widgets/img' => SITEORIGIN_PANELS_URI.'widgets/img',
 			);
 			$folders = apply_filters('siteorigin_widget_image_folders', $folders);
 		}
@@ -970,7 +970,7 @@ function siteorigin_panels_video_shortcode($atts){
 	$instance = shortcode_atts( array(
 		'url' => '',
 		'src' => '',
-		'poster' => plugin_dir_url(SITEORIGIN_PANELS_BASE_FILE).'video/poster.jpg',
+		'poster' => SITEORIGIN_PANELS_URI.'video/poster.jpg',
 		'skin' => 'siteorigin',
 		'ratio' => 1.777,
 		'autoplay' => 0,
