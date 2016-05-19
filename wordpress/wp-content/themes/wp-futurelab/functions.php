@@ -183,6 +183,26 @@ function wp_futurelab_widgets_init() {
     'before_title' => '<h5>',
     'after_title' => '</h5>'
   ));
+  
+  register_sidebar(array(
+    'name' => 'Footer column 4',
+    'id' => 'footer_column_4',
+    'description' => __( 'Footer Column 4', 'wp_futurelab' ),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h5>',
+    'after_title' => '</h5>'
+  ));
+  
+  register_sidebar(array(
+    'name' => 'Footer column 5',
+    'id' => 'footer_column_5',
+    'description' => __( 'Footer Column 5', 'wp_futurelab' ),
+    'before_widget' => '<div id="%1$s" class="widget %2$s">',
+    'after_widget' => '</div>',
+    'before_title' => '<h5>',
+    'after_title' => '</h5>'
+  ));
 
 	register_sidebar( array(
 		'name'          => __( 'Footer Bottom 1', 'wp_futurelab' ),
