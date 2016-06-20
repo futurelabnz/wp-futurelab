@@ -18,12 +18,14 @@
             <?php
               //count for active sidebar
               $footerColArray = array(is_active_sidebar( 'footer_column_1' ), is_active_sidebar( 'footer_column_2' ), is_active_sidebar( 'footer_column_3' ), is_active_sidebar( 'footer_column_4' ), is_active_sidebar( 'footer_column_5' ));
-              if(count(array_filter($footerColArray)) == 1){
-                $footerColumn = 12;
-              }elseif(count(array_filter($footerColArray)) == 5){
-                $footerColumn = '5ths col-xs-6';
-              }else{
-                $footerColumn = 12 / count(array_filter($footerColArray));
+              if(count(array_filter($footerColArray)) > 0){
+                if(count(array_filter($footerColArray)) == 1){
+                  $footerColumn = 12;
+                }elseif(count(array_filter($footerColArray)) == 5){
+                  $footerColumn = '5ths col-xs-6';
+                }else{
+                  $footerColumn = 12 / count(array_filter($footerColArray));
+                }
               }
             ?>
 
