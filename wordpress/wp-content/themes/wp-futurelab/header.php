@@ -132,4 +132,5 @@
 		</header><!-- .site-header -->
 
 		<div id="content" class="container">
-        <div class="row">
+      <?php do_action( 'before_content' ); ?>
+      <div class="row">
