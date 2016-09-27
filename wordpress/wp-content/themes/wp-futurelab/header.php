@@ -21,6 +21,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+    <?php do_action( 'futurelab_after_body_open' ); ?>
 <div id="page" class="site">
 	<div class="site-inner">
 
