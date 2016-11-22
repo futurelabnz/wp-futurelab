@@ -49,17 +49,7 @@ class SiteOrigin_Widget_PostCarousel_Widget extends SiteOrigin_Widget {
 			array(
 
 			),
-			array(
-				'title' => array(
-					'type' => 'text',
-					'label' => __('Title', 'so-widgets-bundle'),
-				),
-
-				'posts' => array(
-					'type' => 'posts',
-					'label' => __('Posts query', 'so-widgets-bundle'),
-				),
-			),
+			false ,
 			plugin_dir_path(__FILE__).'../'
 		);
 	}
@@ -75,7 +65,7 @@ class SiteOrigin_Widget_PostCarousel_Widget extends SiteOrigin_Widget {
 				),
 				array(
 					'sow-carousel-basic',
-					plugin_dir_url(__FILE__) . 'js/carousel' . SOW_BUNDLE_JS_SUFFIX . '.js',
+					SOW_BUNDLE_URI . 'widgets/post-carousel/js/carousel' . SOW_BUNDLE_JS_SUFFIX . '.js',
 					array( 'jquery', 'touch-swipe' ),
 					SOW_BUNDLE_VERSION,
 					true
@@ -86,11 +76,25 @@ class SiteOrigin_Widget_PostCarousel_Widget extends SiteOrigin_Widget {
 			array(
 				array(
 					'sow-carousel-basic',
-					SOW_BUNDLE_URI . 'widgets/post-carousel/' . 'css/style.css',
+					SOW_BUNDLE_URI . 'widgets/post-carousel/css/style.css',
 					array(),
 					SOW_BUNDLE_VERSION
 				)
 			)
+		);
+	}
+
+	function get_widget_form(){
+		return array(
+			'title' => array(
+				'type' => 'text',
+				'label' => __('Title', 'so-widgets-bundle'),
+			),
+
+			'posts' => array(
+				'type' => 'posts',
+				'label' => __('Posts query', 'so-widgets-bundle'),
+			),
 		);
 	}
 

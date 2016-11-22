@@ -16,7 +16,7 @@ function siteorigin_widgets_icon_families_filter( $families ){
 		include_once plugin_dir_path(__FILE__) . $font . '/filter.php';
 		$families[$font] = array(
 			'name' => $name,
-			'style_uri' => SOW_BUNDLE_URI . 'icons/' . $font . '/style.css',
+			'style_uri' => SOW_BUNDLE_URI . $font . '/style.css',
 			'icons' => apply_filters('siteorigin_widgets_icons_' . $font, array() ),
 		);
 	}
