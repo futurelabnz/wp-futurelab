@@ -8,7 +8,6 @@
 /**
  * Sets up the WordPress core custom header and custom background features.
  *
- *
  * @see wp_futurelab_header_style()
  */
 function wp_futurelab_custom_header_and_background() {
@@ -18,7 +17,6 @@ function wp_futurelab_custom_header_and_background() {
 
 	/**
 	 * Filter the arguments used when adding 'custom-background'
-	 *
 	 *
 	 * @param array $args {
 	 *     An array of custom-background support arguments.
@@ -32,7 +30,6 @@ function wp_futurelab_custom_header_and_background() {
 
 	/**
 	 * Filter the arguments used when adding 'custom-header'
-	 *
 	 *
 	 * @param array $args {
 	 *     An array of custom-header support arguments.
@@ -56,23 +53,22 @@ function wp_futurelab_custom_header_and_background() {
 add_action( 'after_setup_theme', 'wp_futurelab_custom_header_and_background' );
 
 if ( ! function_exists( 'wp_futurelab_header_style' ) ) :
-/**
- * Styles the header text displayed on the site.
- *
- * Create your own wp_futurelab_header_style() function to override in a child theme.
- *
- *
- * @see wp_futurelab_custom_header_and_background().
- */
-function wp_futurelab_header_style() {
-	// If the header text option is untouched, let's bail.
-	if ( display_header_text() ) {
-		return;
-	}
+	/**
+	 * Styles the header text displayed on the site.
+	 *
+	 * Create your own wp_futurelab_header_style() function to override in a child theme.
+	 *
+	 * @see wp_futurelab_custom_header_and_background().
+	 */
+	function wp_futurelab_header_style() {
+		// If the header text option is untouched, let's bail.
+		if ( display_header_text() ) {
+			return;
+		}
 
-	// If the header text has been hidden.
-	?>
-	<style type="text/css" id="wp_futurelab-header-css">
+		// If the header text has been hidden.
+		?>
+		<style type="text/css" id="wp_futurelab-header-css">
 		.site-branding {
 			margin: 0 auto 0 0;
 		}
@@ -82,14 +78,13 @@ function wp_futurelab_header_style() {
 			clip: rect(1px, 1px, 1px, 1px);
 			position: absolute;
 		}
-	</style>
-	<?php
-}
+		</style>
+		<?php
+	}
 endif; // wp_futurelab_header_style
 
 /**
  * Adds postMessage support for site title and description for the Customizer.
- *
  *
  * @param WP_Customize_Manager $wp_customize The Customizer object.
  */
@@ -164,14 +159,14 @@ function wp_futurelab_customize_register( $wp_customize ) {
 		'label'       => __( 'Secondary Text Color', 'wp_futurelab' ),
 		'section'     => 'colors',
 	) ) );
-  
-  //Add site logo upload setting under Site Identity
-  $wp_customize->add_setting('site_logo');
-  $wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'site_logo', array(
-      'label'   => __('Site Logo', 'wp_futurelab'),
-      'section' => 'title_tagline',
-      'settings'=> 'site_logo',
-  ) ) );
+
+	// Add site logo upload setting under Site Identity
+	$wp_customize->add_setting( 'site_logo' );
+	$wp_customize->add_control( new WP_Customize_Image_Control($wp_customize, 'site_logo', array(
+		'label'   => __( 'Site Logo', 'wp_futurelab' ),
+		'section' => 'title_tagline',
+		'settings' => 'site_logo',
+	) ) );
 }
 add_action( 'customize_register', 'wp_futurelab_customize_register', 11 );
 
@@ -187,7 +182,6 @@ add_action( 'customize_register', 'wp_futurelab_customize_register', 11 );
  * 4. Main Text Color.
  * 5. Secondary Text Color.
  *
- *
  * @return array An associative array of color scheme options.
  */
 function wp_futurelab_get_color_schemes() {
@@ -195,7 +189,6 @@ function wp_futurelab_get_color_schemes() {
 	 * Filter the color schemes registered for use.
 	 *
 	 * The default schemes include 'default', 'dark', 'gray', 'red', and 'yellow'.
-	 *
 	 *
 	 * @param array $schemes {
 	 *     Associative array of color schemes data.
@@ -265,72 +258,70 @@ function wp_futurelab_get_color_schemes() {
 }
 
 if ( ! function_exists( 'wp_futurelab_get_color_scheme' ) ) :
-/**
- * Retrieves the current color scheme.
- *
- * Create your own wp_futurelab_get_color_scheme() function to override in a child theme.
- *
- *
- * @return array An associative array of either the current or default color scheme HEX values.
- */
-function wp_futurelab_get_color_scheme() {
-	$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
-	$color_schemes       = wp_futurelab_get_color_schemes();
+	/**
+	 * Retrieves the current color scheme.
+	 *
+	 * Create your own wp_futurelab_get_color_scheme() function to override in a child theme.
+	 *
+	 * @return array An associative array of either the current or default color scheme HEX values.
+	 */
+	function wp_futurelab_get_color_scheme() {
+		$color_scheme_option = get_theme_mod( 'color_scheme', 'default' );
+		$color_schemes       = wp_futurelab_get_color_schemes();
 
-	if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {
-		return $color_schemes[ $color_scheme_option ]['colors'];
+		if ( array_key_exists( $color_scheme_option, $color_schemes ) ) {
+			return $color_schemes[ $color_scheme_option ]['colors'];
+		}
+
+		return $color_schemes['default']['colors'];
 	}
-
-	return $color_schemes['default']['colors'];
-}
 endif; // wp_futurelab_get_color_scheme
 
 if ( ! function_exists( 'wp_futurelab_get_color_scheme_choices' ) ) :
-/**
- * Retrieves an array of color scheme choices registered.
- *
- * Create your own wp_futurelab_get_color_scheme_choices() function to override
- * in a child theme.
- *
- * @return array Array of color schemes.
- */
-function wp_futurelab_get_color_scheme_choices() {
-	$color_schemes                = wp_futurelab_get_color_schemes();
-	$color_scheme_control_options = array();
+	/**
+	 * Retrieves an array of color scheme choices registered.
+	 *
+	 * Create your own wp_futurelab_get_color_scheme_choices() function to override
+	 * in a child theme.
+	 *
+	 * @return array Array of color schemes.
+	 */
+	function wp_futurelab_get_color_scheme_choices() {
+		$color_schemes                = wp_futurelab_get_color_schemes();
+		$color_scheme_control_options = array();
 
-	foreach ( $color_schemes as $color_scheme => $value ) {
-		$color_scheme_control_options[ $color_scheme ] = $value['label'];
+		foreach ( $color_schemes as $color_scheme => $value ) {
+			$color_scheme_control_options[ $color_scheme ] = $value['label'];
+		}
+
+		return $color_scheme_control_options;
 	}
-
-	return $color_scheme_control_options;
-}
 endif; // wp_futurelab_get_color_scheme_choices
 
 
 if ( ! function_exists( 'wp_futurelab_sanitize_color_scheme' ) ) :
-/**
- * Handles sanitization for color schemes.
- *
- * Create your own wp_futurelab_sanitize_color_scheme() function to override
- * in a child theme.
- *
- * @param string $value Color scheme name value.
- * @return string Color scheme name.
- */
-function wp_futurelab_sanitize_color_scheme( $value ) {
-	$color_schemes = wp_futurelab_get_color_scheme_choices();
+	/**
+	 * Handles sanitization for color schemes.
+	 *
+	 * Create your own wp_futurelab_sanitize_color_scheme() function to override
+	 * in a child theme.
+	 *
+	 * @param string $value Color scheme name value.
+	 * @return string Color scheme name.
+	 */
+	function wp_futurelab_sanitize_color_scheme( $value ) {
+		$color_schemes = wp_futurelab_get_color_scheme_choices();
 
-	if ( ! array_key_exists( $value, $color_schemes ) ) {
-		return 'default';
+		if ( ! array_key_exists( $value, $color_schemes ) ) {
+			return 'default';
+		}
+
+		return $value;
 	}
-
-	return $value;
-}
 endif; // wp_futurelab_sanitize_color_scheme
 
 /**
  * Enqueues front-end CSS for color scheme.
- *
  *
  * @see wp_add_inline_style()
  */
@@ -373,7 +364,6 @@ add_action( 'wp_enqueue_scripts', 'wp_futurelab_color_scheme_css' );
  * Binds the JS listener to make Customizer color_scheme control.
  *
  * Passes color scheme data as colorScheme global.
- *
  */
 function wp_futurelab_customize_control_js() {
 	wp_enqueue_script( 'color-scheme-control', get_template_directory_uri() . '/js/color-scheme-control.js', array( 'customize-controls', 'iris', 'underscore', 'wp-util' ), '20150926', true );
@@ -383,7 +373,6 @@ add_action( 'customize_controls_enqueue_scripts', 'wp_futurelab_customize_contro
 
 /**
  * Binds JS handlers to make the Customizer preview reload changes asynchronously.
- *
  */
 function wp_futurelab_customize_preview_js() {
 	wp_enqueue_script( 'wp_futurelab-customize-preview', get_template_directory_uri() . '/js/customize-preview.js', array( 'customize-preview' ), '20150922', true );
@@ -392,7 +381,6 @@ add_action( 'customize_preview_init', 'wp_futurelab_customize_preview_js' );
 
 /**
  * Returns CSS for the color schemes.
- *
  *
  * @param array $colors Color scheme colors.
  * @return string Color scheme CSS.
@@ -707,7 +695,6 @@ CSS;
  *
  * The template generates the css dynamically for instant display in the
  * Customizer preview.
- *
  */
 function wp_futurelab_color_scheme_css_template() {
 	$colors = array(
@@ -728,7 +715,6 @@ add_action( 'customize_controls_print_footer_scripts', 'wp_futurelab_color_schem
 
 /**
  * Enqueues front-end CSS for the page background color.
- *
  *
  * @see wp_add_inline_style()
  */
@@ -800,7 +786,6 @@ add_action( 'wp_enqueue_scripts', 'wp_futurelab_page_background_color_css', 11 )
 
 /**
  * Enqueues front-end CSS for the link color.
- *
  *
  * @see wp_add_inline_style()
  */
@@ -895,7 +880,6 @@ add_action( 'wp_enqueue_scripts', 'wp_futurelab_link_color_css', 11 );
 
 /**
  * Enqueues front-end CSS for the main text color.
- *
  *
  * @see wp_add_inline_style()
  */
@@ -1041,7 +1025,6 @@ add_action( 'wp_enqueue_scripts', 'wp_futurelab_main_text_color_css', 11 );
 
 /**
  * Enqueues front-end CSS for the secondary text color.
- *
  *
  * @see wp_add_inline_style()
  */

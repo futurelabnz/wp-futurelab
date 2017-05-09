@@ -62,7 +62,7 @@
 						.data( 'data-default-color', color )
 						.wpColorPicker( 'defaultColor', color );
 				} );
-			}
+			}// End if().
 		}
 	} );
 
@@ -81,7 +81,6 @@
 		// jscs:disable
 		colors.border_color = Color( colors.main_text_color ).toCSS( 'rgba', 0.2 );
 		// jscs:enable
-
 		css = cssTemplate( colors );
 
 		api.previewer.send( 'update-color-scheme-css', css );

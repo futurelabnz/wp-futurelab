@@ -7,8 +7,8 @@
 if ( ! class_exists( 'webhatcheryMyWalkerNavMenu' ) ) {
 
 	class Walker_Nav_Primary extends Walker_Nav_Menu {
-	
-	//Overwrite display_element function to add has_children attribute. Not needed in >= Wordpress 3.4
+
+		// Overwrite display_element function to add has_children attribute. Not needed in >= Wordpress 3.4
 		/**
 		 * @link https://gist.github.com/duanecilliers/1817371 copy from this url
 		 */
@@ -18,10 +18,10 @@ if ( ! class_exists( 'webhatcheryMyWalkerNavMenu' ) ) {
 			}
 			$id_field = $this->db_fields['id'];
 
-			//display this element
+			// display this element
 			if ( is_array( $args[0] ) ) {
 				$args[0]['has_children'] = ! empty( $children_elements[ $element->$id_field ] );
-			} else if ( is_object( $args[0] ) ) {
+			} elseif ( is_object( $args[0] ) ) {
 				$args[0]->has_children = ! empty( $children_elements[ $element->$id_field ] );
 			}
 			$cb_args = array_merge( array( &$output, $element, $depth ), $args );
@@ -36,7 +36,7 @@ if ( ! class_exists( 'webhatcheryMyWalkerNavMenu' ) ) {
 
 					if ( ! isset( $newlevel ) ) {
 						$newlevel = true;
-						//start the child delimiter
+						// start the child delimiter
 						$cb_args = array_merge( array( &$output, $depth ), $args );
 						call_user_func_array( array( &$this, 'start_lvl' ), $cb_args );
 					}
@@ -46,18 +46,17 @@ if ( ! class_exists( 'webhatcheryMyWalkerNavMenu' ) ) {
 			}
 
 			if ( isset( $newlevel ) && $newlevel ) {
-				//end the child delimiter
+				// end the child delimiter
 				$cb_args = array_merge( array( &$output, $depth ), $args );
 				call_user_func_array( array( &$this, 'end_lvl' ), $cb_args );
 			}
 
-			//end this element
+			// end this element
 			$cb_args = array_merge( array( &$output, $element, $depth ), $args );
 			call_user_func_array( array( &$this, 'end_el' ), $cb_args );
 		}
 
-// display_element
-
+		// display_element
 		/**
 		 * @link https://gist.github.com/duanecilliers/1817371 copy from this url
 		 */
@@ -72,16 +71,16 @@ if ( ! class_exists( 'webhatcheryMyWalkerNavMenu' ) ) {
 			$class_names   = $value = '';
 
 			$classes = empty( $item->classes ) ? array() : (array) $item->classes;
-			//Add class and attribute to LI element that contains a submenu UL.
+			// Add class and attribute to LI element that contains a submenu UL.
 			if ( is_object( $args ) && $args->has_children ) {
-				//$classes[] = 'dropdown';
+				// $classes[] = 'dropdown';
 				$li_attributes .= ' data-dropdown="dropdown"';
 			}
 			$classes[] = 'menu-item-' . $item->ID;
-			//If we are on the current page, add the active class to that menu item.
+			// If we are on the current page, add the active class to that menu item.
 			$classes[] = ( $item->current ) ? 'active' : '';
 
-			//Make sure you still add all of the WordPress classes.
+			// Make sure you still add all of the WordPress classes.
 			$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args ) );
 			$class_names = ' class="' . esc_attr( $class_names ) . '"';
 
@@ -90,7 +89,7 @@ if ( ! class_exists( 'webhatcheryMyWalkerNavMenu' ) ) {
 
 			$output .= $indent . '<li' . $id . $value . $class_names . $li_attributes . '>';
 
-			//Add attributes to link element.
+			// Add attributes to link element.
 			$attributes = ! empty( $item->attr_title ) ? ' title="' . esc_attr( $item->attr_title ) . '"' : '';
 			$attributes .= ! empty( $item->target ) ? ' target="' . esc_attr( $item->target ) . '"' : '';
 			$attributes .= ! empty( $item->xfn ) ? ' rel="' . esc_attr( $item->xfn ) . '"' : '';
@@ -107,22 +106,21 @@ if ( ! class_exists( 'webhatcheryMyWalkerNavMenu' ) ) {
 			$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
 		}
 
-// start_el
-
+		// start_el
 		public function start_lvl( &$output, $depth = 0, $args = array() ) {
 			$indent = str_repeat( "\t", $depth );
 			$output .= "\n$indent<ul class=\"sub-menu dropdown-menu\">\n";
 		}
-	
-/*	
-	function end_el(){ // closing li a span
-		
+
+		/*
+        function end_el(){ // closing li a span
+
+        }
+
+        function end_lvl(){ // closing ul
+
+        }
+		*/
+
 	}
-	
-	function end_lvl(){ // closing ul
-		
-	}
-*/
-	
-  }
-}
+}// End if().

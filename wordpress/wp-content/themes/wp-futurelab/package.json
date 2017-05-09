@@ -11,13 +11,11 @@
     "url": "https://github.com/pojke/wp-futurelab/issues"
   },
   "keywords": [
-    "wordpress",
-    "angular"
+    "wordpress"
   ],
   "dependencies": {
     "bootstrap": "~3.x",
-    "jquery": "~2.1",
-	"normalize.css": "~3.0.x"
+	  "normalize.css": "~3.0.x"
   },
   "licence": "GPL"
 }

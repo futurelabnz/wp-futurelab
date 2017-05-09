@@ -30,7 +30,7 @@ get_header(); ?>
 				 */
 				get_template_part( 'template-parts/content', get_post_format() );
 
-			// End the loop.
+				// End the loop.
 			endwhile;
 
 			// Previous/next page navigation.
@@ -40,7 +40,7 @@ get_header(); ?>
 				'before_page_number' => '<span class="meta-nav screen-reader-text">' . __( 'Page', 'wp_futurelab' ) . ' </span>',
 			) );
 
-		// If no content, include the "No posts found" template.
+			// If no content, include the "No posts found" template.
 		else :
 			get_template_part( 'template-parts/content', 'none' );
 

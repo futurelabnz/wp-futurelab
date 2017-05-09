@@ -14,4 +14,4 @@ if ( $post && $post->post_parent ) {
 	exit;
 }
 
-?>
+

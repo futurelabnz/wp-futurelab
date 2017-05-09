@@ -10,11 +10,11 @@
 		if ( 37 === e.which ) {
 			url = $( '.nav-previous a' ).attr( 'href' );
 
-		// Right arrow key code.
+			// Right arrow key code.
 		} else if ( 39 === e.which ) {
 			url = $( '.nav-next a' ).attr( 'href' );
 
-		// Other key code.
+			// Other key code.
 		} else {
 			return;
 		}

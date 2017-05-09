@@ -8,7 +8,7 @@
 
 	if ( ! style.length ) {
 		style = $( 'head' ).append( '<style type="text/css" id="wp_futurelab-color-scheme-css" />' )
-		                    .find( '#wp_futurelab-color-scheme-css' );
+							.find( '#wp_futurelab-color-scheme-css' );
 	}
 
 	// Site title.
