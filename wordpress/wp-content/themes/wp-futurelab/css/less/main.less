@@ -92,21 +92,10 @@
                 }
                 ul {
                     list-style-type: none;
-                    &.sub-menu {
-                        display: none;
-                    }
                     li {
                         padding: 10px 0;
                         &.menu-item-has-children {
-                            &:after {
-                                content: '>';
-                                width: 20px;
-                                height: 20px;
-                                color: #fff;
-                                cursor: pointer;
-                                position: relative;
-                                z-index: 200;
-                            }
+
                         }
                         a {
                             color: #fff;
@@ -186,6 +175,12 @@
         .navbar-toggle {
             display: block;
             padding: 7px 0 6px;
+        }
+        .navbar-nav {
+            float: none;
+            &>li {
+                float: none;
+            }
         }
     }
 }
