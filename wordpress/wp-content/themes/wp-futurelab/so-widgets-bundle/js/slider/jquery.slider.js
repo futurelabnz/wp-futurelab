@@ -76,18 +76,11 @@ jQuery( function($){
         $slides.each(function( index, el) {
             var $slide = $(el);
             var urlData = $slide.data('url');
-
             $slide.click(function(event) {
-
-                if( urlData !== undefined ) {
-                    var $t = $(event.target);
-                    // If this isn't a link, we'll use the URL of the frame
-                    if( $t.prop("tagName") !== 'A' ) {
-                        event.preventDefault();
-                        window.open(urlData.url, urlData.new_window ? '_blank' : '_self');
-                    }
+                if( event.target == $slide || $(event.target).is('.sow-slider-image-wrapper')) {
+                    window.open(urlData.url, urlData.new_window ? '_blank' : '_self');
                 }
-            } );
+            })
         });
 
         var setupSlider = function(){
@@ -99,7 +92,7 @@ jQuery( function($){
                 var $i = $(this);
 
                 $(window)
-                    .on('resize panelsStretchRows', function(){
+                    .resize(function(){
                         $i.css( 'height', $i.find('.sow-slider-image-wrapper').outerHeight() );
                     })
                     .resize();
@@ -112,7 +105,6 @@ jQuery( function($){
                         var $$ = $(this);
                         playSlideVideo(incomingSlideEl);
                         setupActiveSlide( $$, incomingSlideEl );
-	                    $( incomingSlideEl ).trigger('sowSlideCycleAfter');
                     },
 
                     'cycle-before' : function(event, optionHash, outgoingSlideEl, incomingSlideEl, forwardFlag) {
@@ -120,7 +112,6 @@ jQuery( function($){
                         $p.find('> li').removeClass('sow-active').eq(optionHash.slideNum-1).addClass('sow-active');
                         pauseSlideVideo(outgoingSlideEl);
                         setupActiveSlide($$, incomingSlideEl, optionHash.speed);
-	                    $( incomingSlideEl ).trigger('sowSlideCycleBefore');
                     },
 
                     'cycle-initialized' : function(event, optionHash){
@@ -128,8 +119,6 @@ jQuery( function($){
                         setupActiveSlide( $$, optionHash.slides[0] );
 
                         $p.find('>li').removeClass('sow-active').eq(0).addClass('sow-active');
-	                    $( this ).find('.cycle-slide-active').trigger( 'sowSlideInitial' );
-
                         if(optionHash.slideCount <= 1) {
                             // Special case when there is only one slide
                             $p.hide();
@@ -143,7 +132,7 @@ jQuery( function($){
                     'slides' : '> .sow-slider-image',
                     'speed' : settings.speed,
                     'timeout' : settings.timeout,
-                    'swipe' : settings.swipe,
+                    'swipe' : true,
                     'swipe-fx' : 'scrollHorz'
                 } );
 
