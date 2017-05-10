@@ -26,11 +26,13 @@
 	
 	<div id="mask" class="menu-mask">
 	    <div class="mask-content">
-	        <?php wp_nav_menu( array(
-						'theme_location' => 'primary',
-						'menu_id' => 'primary-menu',
-						'menu_class'     => 'navbar-nav text-centered'
-					) ); ?>
+	    	<nav>
+		        <?php wp_nav_menu( array(
+							'theme_location' => 'primary',
+							'menu_id' => 'primary-menu',
+							'menu_class'     => 'navbar-nav text-centered'
+						) ); ?>
+			</nav>
 	    </div>
 	</div>
 
