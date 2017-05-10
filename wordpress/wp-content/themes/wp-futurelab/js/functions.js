@@ -2,11 +2,11 @@
     $(document).ready(function() {
         futurelab.init();
 
-        $(window).resize(function() {
-            $('.full-screen-height').height($(window).height() - $('.full-screen-height').offset().top);
-        });
-        $(window).resize();
-
+        if( $('.full-screen-height').length ) {
+            $(window).resize(function() {
+                $('.full-screen-height').height($(window).height() - $('.full-screen-height').offset().top);
+            });
+        }
     });
 })(jQuery);
 
