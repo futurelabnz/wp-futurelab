@@ -6,6 +6,7 @@
             $(window).resize(function() {
                 $('.full-screen-height').height($(window).height() - $('.full-screen-height').offset().top);
             });
+            $(window).resize();
         }
     });
 })(jQuery);
