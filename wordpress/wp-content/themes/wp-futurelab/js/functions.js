@@ -21,12 +21,13 @@ var futurelab = {
     _body: jQuery('html,body'),
 
     init: function() {
-        this.menu();
+        //this.popupMenu();
+        //this.slideinMenu();
         this.scroll_ID();
     },
 
     //menu section 
-    menu: function() {
+    popupMenu: function() {
         var mask = this._mask;
         var menuText = this._menuText;
         var menuButton = this._menuButton;
@@ -39,6 +40,25 @@ var futurelab = {
             } else {
                 menuText.html('Close');
                 menuButton.addClass('popped_up');
+            }
+        });
+    }, 
+
+    //menu section 
+    slideinMenu: function() {
+        var mask = this._mask;
+        var menuText = this._menuText;
+        var menuButton = this._menuButton;
+
+        jQuery(document).on('click', '.menu-text, .navbar-toggle', function(e) {
+            if ( ! jQuery( ".navbar-toggle" ).hasClass( 'collapsed' ) ) {
+                jQuery( ".menu-mask" ).addClass( 'collapsed' );
+                jQuery( "body" ).css( "right", "0" );
+                jQuery( ".navbar-toggle" ).addClass( 'collapsed' );
+            } else {
+                jQuery( ".menu-mask" ).removeClass( 'collapsed' );
+                jQuery( "body" ).css( "right", "320px" );
+                jQuery( ".navbar-toggle" ).removeClass( 'collapsed' );
             }
         });
     },

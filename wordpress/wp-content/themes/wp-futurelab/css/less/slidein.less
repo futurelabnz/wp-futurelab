@@ -1,0 +1,87 @@
+/*
+* Slide in menu
+*/
+
+body {
+    transition: all .7s;
+    overflow-x: hidden;
+    position: relative;
+    right: 0;
+}
+
+.admin-bar {
+    #mask {
+        margin-top: 32px;
+        @media screen and (max-width: 782px) {
+            margin-top: 46px !important;
+        }
+    }
+}
+
+.slidein-menu {
+
+    #mask {
+        width: 320px;
+        max-width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background-color: #000;
+        overflow-x: hidden;
+        transition: .7s;
+        &.collapsed {
+            width: 0;
+        }
+
+        .mask-content {
+            position: relative;
+            display: flow-root;
+        }
+
+        nav {
+            .menu-main-menu-container {
+                margin-top: 50px;
+            }
+        }
+
+        .close-nav {
+            margin-top: 10px;
+            z-index: 20;
+            display: inline-flex;
+            .close-text {
+                color: #fff;
+            }
+            .top-bar {
+                transform: rotate(45deg);
+                transform-origin: 40% 10%;
+            }
+            .icon-bar {
+                height: 1px;
+                width: 30px;
+                background-color: #fff;
+                margin-top: 0;
+                
+            }
+            .bottom-bar {
+                transform: rotate(-45deg);
+                transform-origin: 48% 90%;
+            }
+        }
+    }
+
+    .navbar-toggle {
+        border: none;
+        background: transparent !important;
+        margin: 0;
+        padding: 6px 0;
+        display: block;
+    }
+
+    .navbar-nav {
+        float: none;
+        &>li {
+            float: none;
+        }
+    }
+}
