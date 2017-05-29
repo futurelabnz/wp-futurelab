@@ -393,3 +393,8 @@ function wp_futurelab_widget_tag_cloud_args( $args ) {
 }
 add_filter( 'widget_tag_cloud_args', 'wp_futurelab_widget_tag_cloud_args' );
 
+
+
+/*Hide label options on Gravity form
+*/  
+add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
