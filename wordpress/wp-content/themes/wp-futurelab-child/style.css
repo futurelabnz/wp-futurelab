@@ -1,0 +1,11 @@
+/*
+Theme Name: Futurelab theme - child
+Theme URI: http://www.futurelab.co.nz
+Description: A child theme of Futurelab theme
+Author: Futurelab
+Author URI: http://www.futurelab.co.nz
+Version: 1.0.0
+Template: wp-futurelab
+*/
+
+@import url("style-child.css");
