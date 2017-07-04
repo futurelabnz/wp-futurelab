@@ -1,0 +1,3 @@
+[submodule "wordpress/wp-content/plugins/S3-Uploads"]
+	path = wordpress/wp-content/plugins/S3-Uploads
+	url = https://github.com/humanmade/S3-Uploads.git
