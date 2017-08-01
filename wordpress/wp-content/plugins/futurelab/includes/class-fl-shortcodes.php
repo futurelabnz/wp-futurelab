@@ -84,25 +84,19 @@ class FL_Shortcodes {
 			);
 		}
 
-		$posts = get_posts( $query_args );
-		$result = '';
-		if ( ! empty( $posts ) ) {
-			$result	 .= '<div class="owl-carousel futurelab-slides">';
-			foreach ( $posts as $post ) {
-				$result .= '<div class="item">';
-				$result	 .= '<div class="slide-content">';
-				$result	 .= '<div class="slide-title">' . $post->post_title . '</div>';
-				if ( has_post_thumbnail( $post->ID ) ) {
-					$result	 .= '<div class="slide-image">';
-					$result .= get_the_post_thumbnail( $post->ID, 'medium' );
-					$result	 .= '</div>';
-				}
-				$result	 .= '</div>';
-				$result .= '</div>';
-			}
-			$result .= '</div>';
+		$slides = get_posts( $query_args );
+
+		if ( empty( $slides ) ) {
+			return;
 		}
-		return $result;
+
+		ob_start();
+
+		fl_get_template( 'slide.php', false, array(
+			'slides' => $slides,
+		) );
+
+		return ob_get_clean();
 	}
 
 }
