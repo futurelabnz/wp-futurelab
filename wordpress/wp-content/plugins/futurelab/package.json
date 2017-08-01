@@ -1,0 +1,16 @@
+{
+  "name": "FutureLab",
+  "version": "1.0.0",
+  "description": "",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-uglify": "^3.0.0"
+  },
+  "keywords": [],
+  "author": "FutureLab <contact@futurelab.co.nz>",
+  "license": "ISC"
+}
