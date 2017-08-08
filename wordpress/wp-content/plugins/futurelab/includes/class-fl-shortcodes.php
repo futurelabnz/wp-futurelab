@@ -39,7 +39,11 @@ class FL_Shortcodes {
 	 *
 	 * @return string
 	 */
-	public static function accordion() {
+	public static function accordion( $atts ) {
+		$atts = shortcode_atts( array(
+			'columns'  => '1',
+		), $atts, 'product_category' );
+
 		$accordions = get_post_meta( get_the_ID(), 'futurelab_accordion_group_field_id', true );
 		if ( empty( $accordions ) ) {
 			return;
@@ -49,6 +53,7 @@ class FL_Shortcodes {
 
 		fl_get_template( 'accordion.php', false, array(
 			'accordions' => $accordions,
+			'columns' => $atts['columns'],
 		) );
 
 		return ob_get_clean();
