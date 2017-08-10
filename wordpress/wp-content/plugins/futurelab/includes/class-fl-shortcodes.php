@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * FL_Shortcodes class
  * [fl_accordion]
  * [fl_slides num="4" category="popular"]
+ * [fl_dropdown_menu menu="area"]
  *
  * @class       FL_Shortcodes
  * @version     1.0
@@ -27,6 +28,7 @@ class FL_Shortcodes {
 		$shortcodes = array(
 			'fl_accordion'                    => __CLASS__ . '::accordion',
 			'fl_slides'                    => __CLASS__ . '::slides',
+			'fl_dropdown_menu'                    => __CLASS__ . '::dropdown_menu',
 		);
 
 		foreach ( $shortcodes as $shortcode => $function ) {
@@ -99,6 +101,32 @@ class FL_Shortcodes {
 
 		fl_get_template( 'slide.php', false, array(
 			'slides' => $slides,
+		) );
+
+		return ob_get_clean();
+	}
+
+
+	/**
+	 * Display dropdown menu
+	 *
+	 * @param  array $atts [description].
+	 * @return string       [description].
+	 */
+	public static function dropdown_menu( $atts ) {
+		$atts = shortcode_atts( array(
+			'name' => 'Dropdown',
+			'menu' => '',
+		), $atts, 'dropdown_menu' );
+
+		if( empty( $atts['menu'] ) ) {
+			return;
+		}
+
+		ob_start();
+
+		fl_get_template( 'dropdown-menu.php', false, array(
+			'atts' => $atts,
 		) );
 
 		return ob_get_clean();
