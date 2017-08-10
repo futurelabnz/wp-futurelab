@@ -1,3 +1,10 @@
+// Variables
+@import "variables";
+
+h1 {
+ color: #000;
+}
+
 /**
  * Typography
  */
@@ -19,14 +26,6 @@ textarea,
 p   {
     
     font-weight:normal;
-    font-size: 16px;
+    font-size: 18px;
     font-style: normal;
-}
-
-/**
- * Responsive
- */
-@media screen and (max-width:768px) {
-
-
 }

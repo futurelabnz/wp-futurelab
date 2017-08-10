@@ -8,4 +8,4 @@ Version: 1.0.0
 Template: wp-futurelab
 */
 
-@import url("style-child.css");
+@import url("./assets/css/style-child.css");

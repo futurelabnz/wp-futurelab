@@ -2,7 +2,7 @@
 function wp_futurelab_child_enqueue_scripts()
 {
     // Register the script
-    wp_register_script('child-script', get_stylesheet_directory_uri() . '/child.js', array('jquery'), null, true);
+    wp_register_script('child-script', get_stylesheet_directory_uri() . '/assets/js/child.min.js', array('jquery'), null, true);
     // Enqueued script with localized data.
     wp_enqueue_script('child-script');
 }
