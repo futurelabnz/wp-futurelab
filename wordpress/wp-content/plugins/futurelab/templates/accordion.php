@@ -34,10 +34,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 					if ( ! empty( $title ) ) :
 				?>
-					<li>
+					<li class="accordion-list-<?php echo $i; ?>">
 						<div class="toggle"><?php echo esc_html( $title ); ?></div>
 						<div class="inner">
-							<?php echo wpautop( $desc ); ?>
+							<div class="box">
+								<?php echo wpautop( $desc ); ?>
+							</div>
 						</div>
 					</li>
 				<?php
