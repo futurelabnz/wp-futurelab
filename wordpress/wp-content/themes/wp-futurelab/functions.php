@@ -341,13 +341,13 @@ require get_template_directory() . '/inc/customizer.php';
 function wp_futurelab_content_image_sizes_attr( $sizes, $size ) {
 	$width = $size[0];
 
-	840 <= $width && $sizes = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px';
+	1200 <= $width && $sizes = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 1200px';
 
 	if ( 'page' === get_post_type() ) {
-		840 > $width && $sizes = '(max-width: ' . $width . 'px) 85vw, ' . $width . 'px';
+		1200 > $width && $sizes = '(max-width: ' . $width . 'px) 85vw, ' . $width . 'px';
 	} else {
-		840 > $width && 600 <= $width && $sizes = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px';
-		600 > $width && $sizes = '(max-width: ' . $width . 'px) 85vw, ' . $width . 'px';
+		1200 > $width && 600 <= $width && $sizes = '(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 61vw, (max-width: 1362px) 45vw, 600px';
+		1200 > $width && $sizes = '(max-width: ' . $width . 'px) 85vw, ' . $width . 'px';
 	}
 
 	return $sizes;
