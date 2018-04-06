@@ -391,3 +391,11 @@ add_filter( 'widget_tag_cloud_args', 'wp_futurelab_widget_tag_cloud_args' );
 /*Hide label options on Gravity form
 */  
 add_filter( 'gform_enable_field_label_visibility_settings', '__return_true' );
+
+function fl_redirect_author_page() {
+	if ( is_author() ) {
+		wp_redirect( esc_url( home_url( '/' ) ), 301 );
+		exit;
+	}
+}
+add_action( 'template_redirect', 'fl_redirect_author_page' );
