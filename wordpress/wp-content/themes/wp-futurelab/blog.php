@@ -5,6 +5,7 @@ Template Name: Blog
 
 get_header(); ?>
 <?php query_posts( 'post_type=post&post_status=publish&posts_per_page=10&paged=' . get_query_var( 'paged' ) ); ?>
+	<div class="container">
 	<?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
 	<div class="col-md-8">
 	<?php } else { ?>
@@ -44,5 +45,8 @@ wp_reset_query(); ?>
 
 	</div><!-- .content-area -->
   </div><!-- .col-md-12 -->
+	
 <?php get_sidebar(); ?>
+</div>
 <?php get_footer(); ?>
+

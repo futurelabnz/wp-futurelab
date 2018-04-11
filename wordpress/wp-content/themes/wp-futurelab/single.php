@@ -6,6 +6,7 @@
  */
 
 get_header(); ?>
+	<div class="container">
 	<?php if ( is_active_sidebar( 'sidebar-1' ) ) { ?>
 	<div class="col-md-8">
 	<?php } else { ?>
@@ -44,13 +45,16 @@ get_header(); ?>
 
 			// End of the loop.
 		endwhile;
-		?>
+		?> </div>
 
-	  </main><!-- .site-main -->
+	  </main><!-- .site-main --></div>
 
 		<?php get_sidebar( 'content-bottom' ); ?>
 
 	</div><!-- .content-area -->
-  </div><!-- .col-md-12 -->
+	
+  	</div><!-- .col-md-12 -->
+	
 <?php get_sidebar(); ?>
+</div>
 <?php get_footer(); ?>
