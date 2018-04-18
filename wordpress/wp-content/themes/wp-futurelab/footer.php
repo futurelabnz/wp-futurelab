@@ -8,7 +8,7 @@
  */
 ?>
 
-			  </div><!-- .row -->
+			</div><!-- .row -->
 		</div><!-- .container -->
 
 		<footer id="colophon" class="site-footer" role="contentinfo">

@@ -138,7 +138,3 @@
 				</div><!-- .header-image -->
 			<?php endif; // End header image check. ?>
 		</header><!-- .site-header -->
-
-		<div id="content" class="container">
-		<?php do_action( 'before_content' ); ?>
-	  <div class="row">

@@ -131,6 +131,4 @@
 			<?php endif; // End header image check. ?>
 		</header><!-- .site-header -->
 		<?php do_action( 'fl_after_header' ); ?>
-		<div id="content" class="container">
-		<?php do_action( 'before_content' ); ?>
-	  <div class="row">
+		
