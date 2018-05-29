@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<div class="toggle"><?php echo esc_html( $title ); ?></div>
 						<div class="inner">
 							<div class="box">
-								<?php echo wpautop( $desc ); ?>
+								<?php echo wpautop( $wp_embed->run_shortcode( $desc ) ); ?>
 							</div>
 						</div>
 					</li>
