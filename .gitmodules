@@ -1,9 +1,0 @@
-[submodule "wordpress/wp-content/plugins/S3-Uploads"]
-	path = wordpress/wp-content/plugins/S3-Uploads
-	url = https://github.com/humanmade/S3-Uploads.git
-[submodule "wordpress/wp-content/plugins/siteorigin-panels"]
-	path = wordpress/wp-content/plugins/siteorigin-panels
-	url = https://github.com/siteorigin/siteorigin-panels.git
-[submodule "wordpress/wp-content/plugins/so-widgets-bundle"]
-	path = wordpress/wp-content/plugins/so-widgets-bundle
-	url = https://github.com/siteorigin/so-widgets-bundle.git
